@@ -1,0 +1,41 @@
+# Example site configuration for scraping signing events.
+# Copy this file and adjust the selectors to match your target website.
+#
+# To find the right CSS selectors:
+#   1. Open the target website in your browser
+#   2. Right-click on a signing event card/block -> "Inspect"
+#   3. Identify the repeating container element (e.g., div.event-card)
+#   4. Within that container, find selectors for each field
+#
+# Selector tips:
+#   - Use class selectors: ".event-title"
+#   - Use tag + class: "h2.name"
+#   - Use nested selectors: ".event-card .details .price"
+#   - Use attribute selectors: "img[class*='avatar']"
+
+name: "Example Signing Site"
+base_url: "https://www.example-signings.com"
+pages:
+  - "/upcoming-signings"
+  - "/events"
+
+selectors:
+  event_container: "div.event-card"
+  signer_name: "h2.signer-name"
+  team_or_franchise: "span.team"
+  date_time: "span.event-date"
+  location: "div.event-location"
+  business_name: "div.host-business"
+  price: "span.price"
+  image_url: "img.signer-photo"
+  contact_info: "div.contact-info"
+  detail_link: "a.event-link"
+
+# Optional: custom HTTP headers
+headers:
+  Accept-Language: "en-US,en;q=0.9"
+
+# Optional: pagination settings
+pagination:
+  next_page_selector: "a.next-page"
+  max_pages: 5
